@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #f4f4e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .icon{
+            margin-right: 10px;
+            
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            backdrop-filter : blur(10px);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .link {
+            margin-top: 15px;
+            display: inline-block;
+            color: rgb(0,0,0);
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        .checkbox label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="pexels-pixabay-268533.jpg" alt="background">
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="check">Remember login</label>
+                <a href="forget.html" class="link">Forgot password?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <a href="signup.html" class="link">Don't have an account? Register here.</a>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Implement login logic here
+            alert('Login functionality needs to be implemented.');
+        });
+    </script>
+</body>
+</html>
