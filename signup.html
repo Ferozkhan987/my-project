@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #f4f4e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .container {
+            backdrop-filter:blur(05px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            height:350px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #0000000;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(225, 225, 225, 0.8);
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #0000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #000000;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="pexels-bri-schneiter-28802-346529.jpg" alt="background">
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id ="signupid" >
+            <div class="input-box">
+                <input type="text" name="name" placeholder=" enter Username" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="pass" placeholder="Password" required>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <button type="submit">Sign Up</button>
+    
+           <a href="login.html" class="link">Already have an account? Login here.</a>
+        </form>
+        </div>
+       <script>
+            $(document).ready(function() {
+                $('#signupid').on('submit', function(event) {
+                    event.preventDefault();
+                    const formData = $(this).serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: 'save_data.php',
+                        data: formData,
+                        success: function(response) {
+                            alert(response);
+                            if (response.includes("New record created successfully")) {
+                                window.location.href = 'login.html';
+                            }
+                        },
+                        error: function() {
+                            alert('Error saving data.');
+                        }
+                    });
+                });
+            });
+        </script>
+    
+    
+</body>
+</html>
